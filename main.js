@@ -63,11 +63,13 @@ function checkChoiceAndCompare(e) {
     const choice2 = choices[1];
     choices[0] === choices[1] ? $els.winner.textContent = `It's a tie!` :
     $els.winner.textContent = `${compare(choice1, choice2)} wins!`;
-  }
-  if (choices.length === 2) {
-    addWin();
     $els.container.removeEventListener('click', checkChoiceAndCompare);
+    addWin();
   }
+  // if (choices.length === 2) {
+  //   addWin();
+  //   $els.container.removeEventListener('click', checkChoiceAndCompare);
+  // }
 }
 
 
