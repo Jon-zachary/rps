@@ -66,10 +66,6 @@ function checkChoiceAndCompare(e) {
     $els.container.removeEventListener('click', checkChoiceAndCompare);
     addWin();
   }
-  // if (choices.length === 2) {
-  //   addWin();
-  //   $els.container.removeEventListener('click', checkChoiceAndCompare);
-  // }
 }
 
 
