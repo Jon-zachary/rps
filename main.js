@@ -9,13 +9,15 @@ const $els = {
   player2: document.querySelector('.player2'),
   button: document.querySelector('button'),
 };
-// add an array to keep the player choices
+// declare global variables to store the state of the game
+// an array to keep the player choices and two variables to track the
+// wins and losses of the players
 const choices = [];
 let player1Wins = 0;
 let player2Wins = 0;
 
-// add winning logic
-  // compare rock paper an scissor
+// implement the basic logic of rock paper scissors: given two
+// choices return the winning choice according to the rules.
 function compare(choice1, choice2) {
   if (choice1 === choice2) {
     return 'The result is a tie!';
@@ -42,8 +44,7 @@ function compare(choice1, choice2) {
 }
 
 
-// add event listeners to our elements
-
+// create function that keeps track of the ammount fo wins for each player
 function addWin() {
   if (choices[0] === choices[1]) return;
   const winner = compare(choices[0], choices[1]);
@@ -52,6 +53,8 @@ function addWin() {
   $els.player2.textContent = player2Wins;
 }
 
+// create a function that will handle the click events. The function will check
+// to see what the user clicks, pushes it into an array
 function checkChoiceAndCompare(e) {
   if (e.target.classList[0] !== 'rock' &&
       e.target.classList[0] !== 'paper' &&
