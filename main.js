@@ -44,7 +44,7 @@ function compare(choice1, choice2) {
 }
 
 
-// create function that keeps track of the ammount fo wins for each player
+// create function that keeps track of the ammount of wins for each player
 function addWin() {
   if (choices[0] === choices[1]) return;
   const winner = compare(choices[0], choices[1]);
@@ -67,7 +67,7 @@ function checkChoiceAndCompare(e) {
       e.target.classList[0] !== 'paper' &&
       e.target.classList[0] !== 'scissors') return;
   // push the class of the thing we clicked into the choices array
-  // and turn the thing light pink
+  // and turn the thing pink
   choices.push(e.target.classList[0]);
   e.target.style.backgroundColor = 'lightpink';
   // check to see if two choices have been made, if they have
@@ -79,6 +79,7 @@ function checkChoiceAndCompare(e) {
     choices[0] === choices[1] ? $els.winner.textContent = `It's a tie!` :
     $els.winner.textContent = `${compare(choice1, choice2)} wins!`;
     $els.container.removeEventListener('click', checkChoiceAndCompare);
+    console.log(e);
     addWin();
   }
 }
@@ -92,6 +93,6 @@ function reset() {
   $els.winner.textContent = '';
   $els.container.addEventListener('click', checkChoiceAndCompare);
 }
-// adds one event listener to the div container 
+// adds one event listener to the div container
 $els.button.addEventListener('click', reset);
 $els.container.addEventListener('click', checkChoiceAndCompare);
